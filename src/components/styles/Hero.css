@@ -1,0 +1,86 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-position: 67%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-slide {
+    background-image: url("https://www.lojatoys4fun.com.br/media/magefan_blog/f/u/funko-pop-mais-raros.png");
+}
+
+.hero-container {
+    display: grid;
+    grid-template: 1fr 2fr 1fr / 0.5fr 2fr 0.5fr;
+    height: 100%;
+}
+
+.hero-container__text-box {
+    grid-column: 2;
+    grid-row: 2;
+    color: var(--primary-color);
+    text-align: center;
+    align-self: center;
+}
+
+.hero-container__text-box h1 {
+    font-size: 3.4rem;
+    font-weight: 700;
+    text-shadow: 3px 3px var(--secondary-color);
+}
+
+.hero-container__text-box p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 30px auto;
+    max-width: 360px;
+    text-shadow: 2px 2px var(--secondary-color);
+}
+
+.button-primary {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 1rem;
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 20px auto;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--primary-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+/*Voy a incluir mis mediaqueries acá*/
+
+@media only screen and (min-width: 800px) {
+    .hero-container {
+        display: grid;
+        grid-template: 1fr 2fr 1fr / 1fr 2fr 1fr;
+        height: 100%;
+    }
+
+    .hero-container__text-box h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        margin-top: 30px;
+    }
+
+    .hero-container__text-box p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        max-width: 420px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .hero {
+        background-position: center;
+    }
+
+    .hero-container__text-box h1 {
+        font-size: 4rem;
+    }
+}
