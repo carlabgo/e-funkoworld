@@ -35,7 +35,8 @@
     font-weight: 500;
     margin: 30px auto;
     max-width: 360px;
-    text-shadow: 2px 2px var(--secondary-color);
+    color:var(--secondary-color);
+    text-shadow: 2px 2px var(--primary-color);
 }
 
 .button-primary {
@@ -52,8 +53,6 @@
     color: var(--primary-color);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-
-/*Voy a incluir mis mediaqueries acá*/
 
 @media only screen and (min-width: 800px) {
     .hero-container {

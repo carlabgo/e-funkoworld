@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../src/context/CartContext';
-// import './CartItem.css';
+import '../components/styles/CartItem.css';
 
 export const CartItem = ({item}) => {
     const {removeProduct} = useContext(CartContext);
@@ -12,10 +12,10 @@ export const CartItem = ({item}) => {
             </div>
             <div className='cart-info-container'>
                 <p>{item.title}</p>
-                <p>precio unitario: {item.price}</p>
-                <p>cantidad: {item.quantity}</p>
-                <p>Precio total: {item.totalPrice}</p>
-                <button onClick={()=>removeProduct(item.id)}>Eliminar producto</button>
+                <p>Precio: ${item.price}</p>
+                <p>Cantidad: {item.quantity}</p>
+                <p>Precio total: ${item.totalPrice}</p>
+                <button className="delete-btn" onClick={()=>removeProduct(item.id)}>Eliminar producto</button>
             </div>
         </div>
     )

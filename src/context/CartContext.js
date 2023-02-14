@@ -12,17 +12,15 @@ export const CartProvider = ({children})=>{
 
     const addProduct = (product, qty)=>{
         const newList = [...productCartList];
-        //verifico si el producto existe en el arreglo
-        // si existe, actualice la propiedad quantity de ese producto
+
         if(isInCart(product.id)){
             const productIndex = productCartList.findIndex(element=>element.id===product.id);
             newList[productIndex].quantity = newList[productIndex].quantity + qty;
             newList[productIndex].totalPrice = newList[productIndex].quantity * newList[productIndex].price;
             setProductCartList(newList)
         } else{
-        //si no existe, agregue el producto al listado
+
             const newProduct={...product, quantity:qty, totalPrice: qty*product.price}
-           
             const newList = [...productCartList];
             newList.push(newProduct);
             setProductCartList(newList);

@@ -2,13 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { CartItem } from './CartItem';
+import '../components/styles/CartContainer.css';
 
 export const CartContainer = () => {
   const {productCartList, clearProductCartList} = useContext(CartContext);
 
   return (
-    <div>
-      <p>CartContainer</p>
+    <div className='container'>
       <div>
         {
           productCartList.length>0 ?
@@ -22,7 +22,7 @@ export const CartContainer = () => {
             <button onClick={clearProductCartList}>Vaciar el carrito</button>
           </>
           :
-          <p>No has agregado productos</p>
+          <h2>No has agregado productos</h2>
         }
       </div>
     </div>

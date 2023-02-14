@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { ItemCount } from './ItemCount';
-// import './ItemDetail.css';
+import '../components/styles/ItemDetail.css';
 import {Link} from 'react-router-dom';
 
 export const ItemDetail = ({item})=>{
@@ -16,12 +16,11 @@ export const ItemDetail = ({item})=>{
 
     return(
         <div className='detail-container'>
-            <p style={{width: "100%"}}>item detail</p>
             <div className='img-container'>
-                <img src={item.pictureUrl} alt={item.title}/>
+                <img src={item.pictureUrl} alt={item.name}/>
             </div>
             <div className='img-container'>
-                <h4>{item.title}</h4>
+                <h4>{item.name}</h4>
                 <h5>$ {item.price}</h5>
             </div>
             <ItemCount initial={1} stock={10} onAdd={onAdd}/>

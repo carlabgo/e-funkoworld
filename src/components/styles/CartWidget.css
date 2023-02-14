@@ -5,16 +5,5 @@
     
   }
   
-  .quantity-display {
-    margin-left: 10px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    font-size: 10px;
-    position: absolute;
-    text-align: center;
-    line-height: 18px;
-  }
+
   

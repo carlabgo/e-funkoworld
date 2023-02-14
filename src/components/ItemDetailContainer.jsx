@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import './ItemDetailContainer.css';
+import '../components/styles/ItemDetailContainer.css';
 import { productsArray } from "../components/data/data";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
@@ -26,7 +26,6 @@ export const ItemDetailContainer = ()=>{
 
     return(
         <div className="item-detail-container">
-            <p style={{width:"100%", color: "white"}}>item detail container</p>
             <ItemDetail item={item}/>
         </div>
     )

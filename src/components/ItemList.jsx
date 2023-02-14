@@ -1,17 +1,13 @@
-import { Item } from "../Item/Item"
-// import './ItemList.css';
+import { Item } from "../components/Item"
+import '../components/styles/ItemList.css';
 /* import {Link} from 'react-router-dom';
  */
 export const ItemList = ({items})=>{
-
     return(
-        <div className="estilos-listado">
-            <div style={{width:"100%"}}>item list</div>
+        <div className="list">
             {
                 items.map(producto=>(
-                    // <Link key={producto.id} to={`/item/${producto.id}`}>
                         <Item key={producto.id} item={producto}/>
-                    // </Link>
                 ))
             }
         </div>

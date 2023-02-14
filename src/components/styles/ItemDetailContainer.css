@@ -1,0 +1,11 @@
+.item-detail-container{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://www.lojatoys4fun.com.br/media/magefan_blog/f/u/funko-pop-mais-raros.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}

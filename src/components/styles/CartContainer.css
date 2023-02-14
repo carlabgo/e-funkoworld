@@ -1,0 +1,13 @@
+.container{
+    background-image: url("https://www.lojatoys4fun.com.br/media/magefan_blog/f/u/funko-pop-mais-raros.png");
+    background-size:cover;
+    height: 100vh;
+    width: 100%;
+    margin:0;
+}
+.container h2{
+    color:white;
+    font-size: 40px;
+    font-weight: 500;
+    padding-top: 150px;
+}
