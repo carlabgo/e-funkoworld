@@ -2,14 +2,14 @@ import { Item } from "../components/Item"
 import '../components/styles/ItemList.css';
 /* import {Link} from 'react-router-dom';
  */
-export const ItemList = ({items})=>{
-    return(
-        <div className="list">
-            {
-                items.map(producto=>(
-                        <Item key={producto.id} item={producto}/>
-                ))
-            }
+export const ItemList = ({ products }) => {
+    return (
+        <>
+        <div className='list'>
+            {products.map((product) => (
+                <Item key={product.id} product={product} />
+            ))}
         </div>
+        </>
     )
 }

@@ -1,32 +1,39 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import '../components/styles/ItemDetailContainer.css';
-import { productsArray } from "../components/data/data";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { CartContext } from '../context/CartContext'
+import useFirebase from '../hook/useFirebase'
+import Loading from "./Loading";
+import Error from "./Error";
 
-export const ItemDetailContainer = ()=>{
-    const {productId} = useParams();
+export const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState({});
+    const {id} = useParams();
+    const {getProduct,product, isLoading, products, getProducts} = useFirebase();
+    const {addToCart} = useContext(CartContext)
 
-    const getItem = (id)=>{
-        return new Promise((resolve, reject)=>{
-            const product = productsArray.find(item=>item.id === parseInt(id));
-            resolve(product)
-        })
+    useEffect(() => {
+        getProduct({id})
+        getProducts()
+        // eslint-disable-next-line
+    }, [])
+
+    const onAdd = (count) => {
+        addToCart(product,count)
+    }
+    
+    const ids = products.map( i => i.id)
+
+    if (isLoading) {
+        return <Loading /> 
     }
 
-    useEffect(()=>{
-        const getProducto = async()=>{
-            const producto = await getItem(productId);
-            setItem(producto);
+    return (
+        <div className='item-detail-container'>
+        {
+            !ids.includes(id) ? <Error /> : product && <ItemDetail product={product} onAdd={onAdd} />
         }
-        getProducto();
-    },[productId])
-
-    return(
-        <div className="item-detail-container">
-            <ItemDetail item={item}/>
         </div>
     )
 }

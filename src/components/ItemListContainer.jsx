@@ -1,36 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import '../components/styles/ItemListContainer.css';
-import { productsArray } from "../components/data/data";
 import { ItemList } from "../components/ItemList";
 import { useParams } from "react-router-dom";
+import useFirebase from "../hook/useFirebase";
+import Loading from "./Loading"
 
 export const ItemListContainer = ()=>{
-    const {productType} = useParams();
+    const {category} = useParams();
 
-    const [products, setProductos] = useState([]);
+    const {products, getProducts, isLoading} = useFirebase();
 
-    const promise = new Promise((resolve, reject)=>{
-        setTimeout(() => {
-            resolve(productsArray);
-        }, 2000);
-    })
+    useEffect(() => {
+        getProducts()
+        // eslint-disable-next-line
+    }, []);
 
-    useEffect(()=>{
-        promise.then(result=>{
-            if(!productType){
-                setProductos(result)
-            } else{
-                const newList = result.filter(item=>item.category === productType);
-                setProductos(newList)
-                console.log(newList)
-            }
-        })
-    },[productType])
+    const newList = category ? products.filter((p) => p.category === category ) : products;
 
     return(
+        <>
+        {isLoading ? <Loading/> : products &&
         <div className="item-list-container">
-            <ItemList items={products}/>
+            <ItemList products={newList}/>
         </div>
+    }
+    </>
     )
 }

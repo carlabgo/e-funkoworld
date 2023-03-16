@@ -8,10 +8,10 @@ export const CartItem = ({item}) => {
     return (
         <div className='cart-item-container'>
             <div className='cart-img-container'>
-                <img src={item.pictureUrl} alt={item.title}/>
+                <img src={item.img} alt={item.name}/>
             </div>
             <div className='cart-info-container'>
-                <p>{item.title}</p>
+                <p>{item.name}</p>
                 <p>Precio: ${item.price}</p>
                 <p>Cantidad: {item.quantity}</p>
                 <p>Precio total: ${item.totalPrice}</p>
